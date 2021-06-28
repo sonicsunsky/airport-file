@@ -18,7 +18,7 @@
       <template #footer>
         <div class="disclaimer-footer">
           <el-button type="primary" @click="showDisclaimer = false"
-            >我已阅读以上免责声明</el-button
+            >接受以上免责声明</el-button
           >
         </div>
       </template>
@@ -92,7 +92,7 @@
         <el-pagination
           v-show="total > 0"
           background
-          :page-size="listQuery.limit"
+          v-model:page-size="listQuery.limit"
           :page-sizes="[10, 20, 30, 50]"
           v-model:currentPage="listQuery.page"
           layout="prev, pager, next"
@@ -177,7 +177,7 @@
             <el-pagination
               v-show="total > 0"
               background
-              :page-size="listQuery.limit"
+              v-model:page-size="listQuery.limit"
               :page-sizes="[10, 20, 30, 50]"
               v-model:currentPage="listQuery.page"
               layout="total, sizes, prev, pager, next, jumper"
@@ -214,7 +214,7 @@ export default defineComponent({
     const store = useStore();
 
     const state = reactive({
-      showDisclaimer: false,
+      showDisclaimer: true,
       keyword: "",
       defaultProps: {
         children: "children",
@@ -235,7 +235,7 @@ export default defineComponent({
 
     onMounted(() => {
       state.catalogData = [...treeData];
-      state.total = 50;
+      state.total = 100;
       generateTableData();
     });
 
@@ -335,7 +335,6 @@ export default defineComponent({
       handleSizeChange,
       handleCurrentChange,
       handleTreeNodeClick,
-      generateTableData,
     };
   },
 });

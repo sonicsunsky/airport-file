@@ -16,15 +16,11 @@ export default defineComponent({
   name: "Breadcrumb",
   setup(props, context) {
     const route = useRoute();
-
     const getBreadcrumb = () => {
       return route.matched.filter((item) => item.meta.title);
     };
-
     const list = ref(getBreadcrumb());
-
-    console.log("Breadcrumb: ", list.value);
-
+    // console.log("Breadcrumb: ", list.value);
     watch(
       () => route,
       (nVal) => {

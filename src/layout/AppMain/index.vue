@@ -1,6 +1,6 @@
 <template>
   <div class="app-main-container">
-    <router-view v-slot="{ Component }" class="app-main-height">
+    <router-view v-slot="{ Component }">
       <transition name="fade-transform" mode="out-in">
         <keep-alive>
           <component :is="Component" :key="key" />
@@ -60,8 +60,8 @@ export default defineComponent({
   width: 100%;
   overflow: hidden;
 
-  .app-main-height {
-    min-height: calc(100vh - 60px -40px - 55px - 55px);
-  }
+  // .app-main-height {
+  //   min-height: calc(100vh - 60px -40px - 55px - 55px);
+  // }
 }
 </style>

@@ -3,12 +3,11 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "preview": "vite preview"
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "dayjs": "^1.10.5",
-    "element-plus": "^1.0.2-beta.48",
+    "element-plus": "^1.0.2-beta.53",
     "js-cookie": "^2.2.1",
     "normalize.css": "^8.0.1",
     "vue": "^3.0.5",
@@ -22,6 +21,6 @@
     "cross-env": "^7.0.3",
     "sass": "^1.35.1",
     "vite": "^2.3.7",
-    "vite-plugin-style-import": "^0.10.1"
+    "vite-plugin-style-import": "^1.0.1"
   }
 }

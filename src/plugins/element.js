@@ -1,17 +1,18 @@
 //请确保已经安装了 sass 依赖并将 element-plus/packages/theme-chalk/src/base.scss 文件在入口文件中引入
 import "element-plus/packages/theme-chalk/src/base.scss";
-import "../styles/element-variables.scss";
 import "element-plus/lib/theme-chalk/display.css";
+import "../styles/element-variables.scss";
 
+//通过 es modules 按需引入 Element Plus
 import { locale } from "element-plus";
 import lang from "element-plus/lib/locale/lang/zh-cn";
 import "dayjs/locale/zh-cn";
-locale(lang);
+console.log("locale:", locale, import.meta.env.PROD);
+locale.use ? locale.use(lang) : locale(lang);
 
 import {
   ElAlert,
   ElAside,
-  ElAutocomplete,
   ElAvatar,
   ElBacktop,
   ElBadge,
@@ -19,20 +20,11 @@ import {
   ElBreadcrumbItem,
   ElButton,
   ElButtonGroup,
-  ElCalendar,
   ElCard,
-  ElCarousel,
-  ElCarouselItem,
-  ElCascader,
-  ElCascaderPanel,
   ElCheckbox,
   ElCheckboxButton,
   ElCheckboxGroup,
   ElCol,
-  ElCollapse,
-  ElCollapseItem,
-  ElCollapseTransition,
-  ElColorPicker,
   ElContainer,
   ElDatePicker,
   ElDialog,
@@ -45,7 +37,6 @@ import {
   ElForm,
   ElFormItem,
   ElHeader,
-  ElIcon,
   ElImage,
   ElInput,
   ElInputNumber,
@@ -70,8 +61,6 @@ import {
   ElScrollbar,
   ElSelect,
   ElSlider,
-  ElStep,
-  ElSteps,
   ElSubmenu,
   ElSwitch,
   ElTabPane,
@@ -79,12 +68,7 @@ import {
   ElTableColumn,
   ElTabs,
   ElTag,
-  ElTimePicker,
-  ElTimeSelect,
-  ElTimeline,
-  ElTimelineItem,
   ElTooltip,
-  ElTransfer,
   ElTree,
   ElUpload,
   ElInfiniteScroll,
@@ -97,7 +81,6 @@ import {
 export const components = [
   ElAlert,
   ElAside,
-  ElAutocomplete,
   ElAvatar,
   ElBacktop,
   ElBadge,
@@ -105,20 +88,11 @@ export const components = [
   ElBreadcrumbItem,
   ElButton,
   ElButtonGroup,
-  ElCalendar,
   ElCard,
-  ElCarousel,
-  ElCarouselItem,
-  ElCascader,
-  ElCascaderPanel,
   ElCheckbox,
   ElCheckboxButton,
   ElCheckboxGroup,
   ElCol,
-  ElCollapse,
-  ElCollapseItem,
-  ElCollapseTransition,
-  ElColorPicker,
   ElContainer,
   ElDatePicker,
   ElDialog,
@@ -131,7 +105,6 @@ export const components = [
   ElForm,
   ElFormItem,
   ElHeader,
-  ElIcon,
   ElImage,
   ElInput,
   ElInputNumber,
@@ -156,8 +129,6 @@ export const components = [
   ElScrollbar,
   ElSelect,
   ElSlider,
-  ElStep,
-  ElSteps,
   ElSubmenu,
   ElSwitch,
   ElTabPane,
@@ -165,12 +136,7 @@ export const components = [
   ElTableColumn,
   ElTabs,
   ElTag,
-  ElTimePicker,
-  ElTimeSelect,
-  ElTimeline,
-  ElTimelineItem,
   ElTooltip,
-  ElTransfer,
   ElTree,
   ElUpload,
 ];

@@ -46,7 +46,7 @@ export default defineComponent({
     const router = useRouter();
     const store = useStore();
     const collapse = computed(() => store.getters["settings/collapse"]);
-    console.log("SideBar setup: ", route.matched);
+    // console.log("SideBar setup: ", route.matched);
     routeList.value = [...constantRoutes];
 
     const activeMenu = computed(() => {

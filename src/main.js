@@ -12,9 +12,6 @@ import "@/styles/index.scss"; // global css
 const app = createApp(App);
 // app.config.globalProperties.$ELEMENT = { locale };
 
-app.use(router);
-app.use(store);
-
 components.forEach((component) => {
   app.component(component.name, component);
 });
@@ -22,5 +19,8 @@ components.forEach((component) => {
 plugins.forEach((plugin) => {
   app.use(plugin);
 });
+
+app.use(router);
+app.use(store);
 
 app.mount("#app");

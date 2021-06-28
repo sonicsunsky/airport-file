@@ -7,7 +7,8 @@ console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? "/airport-file/" : "/",
+  // base: process.env.NODE_ENV === "production" ? "/airport-file/" : "/",
+  base: "./",
   plugins: [
     vue(),
     vueJsx(),
@@ -48,5 +49,9 @@ export default defineConfig({
         `,
       },
     },
+  },
+  //构建
+  build: {
+    sourcemap: true,
   },
 });

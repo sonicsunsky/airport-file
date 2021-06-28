@@ -593,7 +593,7 @@ csstype@^2.6.8:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.17.tgz#4cf30eb87e1d1a005d8b6510f95292413f6a1c0e"
   integrity sha512-u1wmTI1jJGzCJzWndZo8mk4wnPTZd1eOIYTYvuEyOQGfmDl3TrabCCfKnOC86FZwW/9djqTl933UF/cS425i9A==
 
-dayjs@1.x, dayjs@^1.10.5:
+dayjs@1.x:
   version "1.10.5"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.5.tgz#5600df4548fc2453b3f163ebb2abbe965ccfb986"
   integrity sha512-BUFis41ikLz+65iH6LHQCDm4YPMj5r1YFLdupPIyM4SGcXMmtiLQ7U37i+hGS8urIuqe7I/ou3IS1jVc4nbN4g==
@@ -625,10 +625,10 @@ electron-to-chromium@^1.3.723:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.752.tgz#0728587f1b9b970ec9ffad932496429aef750d09"
   integrity sha512-2Tg+7jSl3oPxgsBsWKh5H83QazTkmWG/cnNwJplmyZc7KcN61+I10oUgaXSVk/NwfvN3BdkKDR4FYuRBQQ2v0A==
 
-element-plus@^1.0.2-beta.48:
-  version "1.0.2-beta.52"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.0.2-beta.52.tgz#c7ed94d498e390658478aa2438bc35247325b2d0"
-  integrity sha512-oAuJHwXyvM4dsuOz7HSDPIBVPqRJ1KEzFzGqYdqbBjQ/aw79uCJxvS9Q4q9/XrPMfPire09+bPTypiIaHkNBhA==
+element-plus@^1.0.2-beta.53:
+  version "1.0.2-beta.53"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.0.2-beta.53.tgz#52208eccce487f452ffc5de8722cb718d6e02953"
+  integrity sha512-PhhOBy1BWSVGWpCcu8fkmjcXvnAlc5dvith9vbNo1hPjm1cqf3AZbbt955VUTyFKWOLUOV9oD76HrNEG5ZTlxg==
   dependencies:
     "@popperjs/core" "^2.4.4"
     "@types/lodash" "^4.14.161"
@@ -644,10 +644,10 @@ emojis-list@^3.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-3.0.0.tgz#5570662046ad29e2e916e71aae260abdff4f6a78"
   integrity sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
 
-es-module-lexer@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-0.4.1.tgz#dda8c6a14d8f340a24e34331e0fab0cb50438e0e"
-  integrity sha512-ooYciCUtfw6/d2w56UVeqHPcoCFAiJdz5XOkYpv/Txl1HMUozpXjz/2RIQgqwKdXNDPSF1W7mJCFse3G+HDyAA==
+es-module-lexer@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/es-module-lexer/-/es-module-lexer-0.6.0.tgz#e72ab05b7412e62b9be37c37a09bdb6000d706f0"
+  integrity sha512-f8kcHX1ArhllUtb/wVSyvygoKCznIjnxhLxy7TCvIiMdT7fL4ZDTIKaadMe6eLvOXg6Wk02UeoFgUoZ2EKZZUA==
 
 esbuild@^0.12.8:
   version "0.12.9"
@@ -1173,15 +1173,15 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-vite-plugin-style-import@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-style-import/-/vite-plugin-style-import-0.10.1.tgz#8732d2c04c92b7e13a7afddcb8e4a34f289fc17c"
-  integrity sha512-3P7Jyf5+b1p26t6mOd6yn8ATNPTDGDRkE19aHicFpo3K7Of7ouJabiPfWE4QaicO6grtCfWGQ0SGMAPqxUSdRA==
+vite-plugin-style-import@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-style-import/-/vite-plugin-style-import-1.0.1.tgz#bf61337dd11e4ebc0f355f271e06d374b1ca5c79"
+  integrity sha512-qinzdBxqkmX4fEyLZJVIBQTrgKivbROgcKJfBRz66knbghYAoe9cQeRptWKh35hE7obiidItWSCrHWkeu+JMVw==
   dependencies:
     "@rollup/pluginutils" "^4.1.0"
     change-case "^4.1.2"
     debug "^4.3.2"
-    es-module-lexer "^0.4.1"
+    es-module-lexer "^0.6.0"
     magic-string "^0.25.7"
 
 vite@^2.3.7:

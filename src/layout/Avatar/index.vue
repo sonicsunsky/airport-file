@@ -11,14 +11,23 @@
 
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+        <el-dropdown-item command="read">
+          已读<el-badge :value="readCount" type="success" />
+        </el-dropdown-item>
+        <el-dropdown-item command="unread">
+          未读 <el-badge :value="unreadCount" type="danger" />
+        </el-dropdown-item>
+        <el-dropdown-item command="total"
+          >可读<el-badge :value="allCount" type="primary"
+        /></el-dropdown-item>
+        <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
 </template>
 
 <script>
-import { defineComponent, ref} from "vue";
+import { defineComponent, reactive, toRefs } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { ElMessageBox } from "element-plus";
@@ -29,8 +38,13 @@ export default defineComponent({
     const route = useRoute();
     const router = useRouter();
     const store = useStore();
-    const avatar = ref("https://picsum.photos/seed/200/128/128");
-    const username = ref("我的昵称");
+    const state = reactive({
+      avatar: "https://picsum.photos/seed/1000/128/128",
+      username: "我的昵称",
+      readCount: 10,
+      unreadCount: 20,
+      allCount: 30,
+    });
 
     const handleCommand = (command) => {
       switch (command) {
@@ -56,8 +70,7 @@ export default defineComponent({
     };
 
     return {
-      avatar,
-      username,
+      ...toRefs(state),
       handleCommand,
       logout,
     };
