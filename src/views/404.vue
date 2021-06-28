@@ -75,7 +75,7 @@ export default {
     mounted(timeChange);
 
     beforeUnmount(() => {
-      clearInterval(timer);
+      timer && clearInterval(timer);
     });
 
     return {

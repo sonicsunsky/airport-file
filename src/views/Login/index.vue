@@ -7,14 +7,14 @@
     <div class="login-container">
       <el-form
         ref="userLoginForm"
-        :model="userLoginForm"
-        :rules="userLoginRules"
+        :model="formModel"
+        :rules="formRules"
         class="login-form"
         label-position="left"
       >
         <el-form-item prop="username">
           <el-input
-            v-model="userLoginForm.username"
+            v-model="formModel.username"
             prefix-icon="el-icon-user"
             placeholder="用户名"
           />
@@ -22,7 +22,7 @@
 
         <el-form-item prop="password">
           <el-input
-            v-model="userLoginForm.password"
+            v-model="formModel.password"
             show-password
             prefix-icon="el-icon-lock"
             placeholder="密码"
@@ -54,11 +54,11 @@ import {
   toRef,
   toRefs,
   watch,
-  defineComponent
+  defineComponent,
 } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
-import {useStore} from 'vuex'
+import { useStore } from "vuex";
 
 const initFormFields = () => {
   return {
@@ -76,8 +76,8 @@ export default defineComponent({
 
     const state = reactive({
       redirect: "",
-      userLoginForm: initFormFields(),
-      userLoginRules: {
+      formModel: initFormFields(),
+      formRules: {
         username: [
           {
             required: true,
@@ -108,16 +108,17 @@ export default defineComponent({
     // })
 
     const resetFormFields = () => {
-      state.userLoginForm = initFormFields();
+      state.formModel = initFormFields();
       userLoginForm.value.resetFields();
     };
 
     const handleLogin = () => {
-      const { username, password } = state.userLoginForm;
+      const { username, password } = state.formModel;
       const params = {
         username,
         password,
       };
+
       userLoginForm.value.validate((valid) => {
         if (valid) {
           state.loading = true;

@@ -9,9 +9,8 @@
     "axios": "^0.21.1",
     "dayjs": "^1.10.5",
     "element-plus": "^1.0.2-beta.48",
+    "js-cookie": "^2.2.1",
     "normalize.css": "^8.0.1",
-    "path-browserify": "^1.0.1",
-    "process": "^0.11.10",
     "vue": "^3.0.5",
     "vue-router": "4",
     "vuex": "^4.0.1"
