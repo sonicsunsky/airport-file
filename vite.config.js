@@ -3,6 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import styleImport from "vite-plugin-style-import";
 import path from "path";
 import vueJsx from "@vitejs/plugin-vue-jsx";
+console.log(process.env.NODE_ENV);
 
 const baseUrl = {
   development: "./",
@@ -12,7 +13,7 @@ const baseUrl = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: process.env.NODE_ENV === "production" ? "/airport-file/" : "./",
   plugins: [
     vue(),
     vueJsx(),
