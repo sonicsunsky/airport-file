@@ -5,15 +5,9 @@ import path from "path";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 console.log(process.env.NODE_ENV);
 
-const baseUrl = {
-  development: "./",
-  beta: "./",
-  release: "./",
-};
-
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? "/airport-file/" : "./",
+  base: process.env.NODE_ENV === "production" ? "/airport-file/" : "/",
   plugins: [
     vue(),
     vueJsx(),
