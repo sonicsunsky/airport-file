@@ -48,7 +48,8 @@ export const constantRoutes = [
 export const asyncRoutes = [];
 
 const router = createRouter({
-  history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
+  history: createWebHashHistory(), 
+  // hash模式：createWebHashHistory，history模式：createWebHistory
   routes: constantRoutes,
   scrollBehavior: () => ({
     top: 0,
