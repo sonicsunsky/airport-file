@@ -47,18 +47,15 @@
 
 <script>
 import {
+  ref,
+  toRefs,
+  reactive,
+  defineComponent,
   onMounted,
   onUnmounted,
-  reactive,
-  ref,
-  toRef,
-  toRefs,
-  watch,
-  defineComponent,
 } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
-import { useStore } from "vuex";
 
 const initFormFields = () => {
   return {
@@ -96,9 +93,9 @@ export default defineComponent({
       loading: false,
     });
 
-    mounted(() => {});
+    onMounted(() => {});
 
-    unmounted(() => {});
+    onUnmounted(() => {});
 
     // watch(()=>route,()=>{
     //     const query = route.query;

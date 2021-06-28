@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive, computed, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { defineComponent, computed, watch } from "vue";
+import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 
 export default defineComponent({

@@ -9,9 +9,8 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive, watch } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import { useStore } from "vuex";
 
 export default defineComponent({
   name: "Breadcrumb",

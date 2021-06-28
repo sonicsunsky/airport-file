@@ -35,9 +35,10 @@
 
 <script>
 import variables from "@/styles/variables.module.scss";
-import { defineComponent, ref, reactive, computed } from "vue";
+import { defineComponent, reactive, computed } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
+
 import Logo from "../Logo/index.vue";
 import SideBarItem from "../SideBar/SideBarItem.vue";
 import Avatar from "../Avatar/index.vue";

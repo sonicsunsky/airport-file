@@ -63,10 +63,8 @@ import {
   toRefs,
   reactive,
   computed,
-  watch,
   onMounted,
 } from "vue";
-import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 export default defineComponent({

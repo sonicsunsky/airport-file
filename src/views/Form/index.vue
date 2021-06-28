@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, toRefs } from "vue";
+import { ref, reactive, toRefs } from "vue";
 
 export default {
   name: "activityForm",

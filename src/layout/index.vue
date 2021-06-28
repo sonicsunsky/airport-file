@@ -61,13 +61,11 @@ import "@/styles/themes/ocean.scss";
 import {
   defineComponent,
   ref,
-  reactive,
   computed,
   watch,
   onBeforeMount,
   onMounted,
   onBeforeUnmount,
-  nextTick,
 } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";

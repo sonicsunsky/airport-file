@@ -13,9 +13,8 @@
   </div>
 </template>
 <script>
-import { defineComponent, ref, reactive, computed } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useStore } from "vuex";
-import Config from "@/config";
 
 export default defineComponent({
   name: "Logo",

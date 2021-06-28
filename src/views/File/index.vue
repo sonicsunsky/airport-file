@@ -200,12 +200,10 @@ import {
   onMounted,
   onUnmounted,
   reactive,
-  ref,
   toRefs,
 } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { ElMessage } from "element-plus";
 import { treeData, createTableData } from "./data";
 
 export default defineComponent({

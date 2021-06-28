@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, toRef } from "vue";
+import { reactive, toRefs, onMounted, onUnmounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 export default {
@@ -72,9 +72,9 @@ export default {
       }, 1000);
     };
 
-    mounted(timeChange);
+    onMounted(timeChange);
 
-    beforeUnmount(() => {
+    onUnmounted(() => {
       timer && clearInterval(timer);
     });
 

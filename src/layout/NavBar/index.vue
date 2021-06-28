@@ -25,8 +25,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { defineComponent, computed } from "vue";
 import { useStore } from "vuex";
 import Avatar from "../Avatar/index.vue";
 import Breadcrumb from "../Breadcrumb/index.vue";

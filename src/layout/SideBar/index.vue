@@ -24,7 +24,7 @@
 
 <script>
 import variables from "@/styles/variables.module.scss";
-import { defineComponent, ref, reactive, computed } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
 import { constantRoutes } from "@/router";
