@@ -1,5 +1,12 @@
 import dayjs from "dayjs";
 
+const files = [
+  "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-74003dee-fc32-4213-84d5-a66438daaefb/1211887c-5741-421d-941e-09a02f4a4147.docx",
+  "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-74003dee-fc32-4213-84d5-a66438daaefb/61d53d29-6548-4f4d-849c-65cf9c8dae1d.pdf",
+  "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-74003dee-fc32-4213-84d5-a66438daaefb/5dbac6ac-38b4-4056-846d-7fe5a1e4fec0.pdf",
+  "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-74003dee-fc32-4213-84d5-a66438daaefb/3032f6b8-6f4f-4a8e-84d9-1161e6d1408d.xlsx",
+];
+
 export const createTableData = (size) => {
   return new Array(size).fill("").map((item, index) => {
     return {
@@ -8,8 +15,9 @@ export const createTableData = (size) => {
       name: `机场文件${index + 1}`,
       status: Math.random() > 0.5 ? "read" : "unread",
       date: dayjs().format("YYYY-MM-DD HH:mm:ss"), //YYYY-MM-DD HH:mm:ss
-      link: `http://www.leomay.com/upload/file/mmo-20170707165001.pdf`,
-      url: `http://www.pwithe.com/Public/Upload/download/20170211/589ebf8e5bb13.pdf`,
+      mime: `application/pdf`,
+      download_url: files[index % 4],
+      href: files[index % 4],
     };
   });
 };

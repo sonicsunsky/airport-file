@@ -12,7 +12,7 @@
           <span>{{ item.meta.title }}</span>
         </template>
       </el-menu-item>
-      
+
       <el-submenu v-else :index="item.path">
         <!-- 二级菜单 -->
         <template #title>
@@ -21,10 +21,10 @@
         </template>
 
         <side-bar-item
-          v-for="route in item.children"
-          :key="route.path"
-          :index="route.path"
-          :item="route"
+          v-for="child in item.children"
+          :key="child.path"
+          :index="child.path"
+          :item="child"
         />
       </el-submenu>
     </div>
@@ -58,7 +58,7 @@ export default defineComponent({
 
         if (isExternal(routePath)) {
           window.open(routePath);
-          return
+          return;
         }
 
         if (route.path !== routePath) {

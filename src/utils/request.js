@@ -1,13 +1,14 @@
 import axios from "axios";
 // import store from "@/store";
 import router from "@/router";
-import { ElLoading, ElMessage } from "element-ui";
+import { ElLoading, ElMessage } from "element-plus";
 import { getStorage, setStorage } from "@/utils/auth";
 import qs from "qs";
 let loadingInstance = null;
 
 const service = axios.create({
-  baseURL: "https://jc.cgoport.com", // process.env.VUE_APP_BASE_API, // url = base url + request url, VUE_APP_BASE_LOCAL_API
+  baseURL: "https://jc.cgoport.com",
+  // process.env.VUE_BASE_API,import.meta.env.VITE_BASE_API
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 50000, // request timeout
 });
@@ -51,31 +52,14 @@ service.interceptors.response.use(
    * You can also judge the status by HTTP Status Code
    */
   (response) => {
-    this.$nextTick(() => {
-      // 以服务的方式调用的 Loading 需要异步关闭
-      loadingInstance && loadingInstance.close();
-    });
+    // 以服务的方式调用的 Loading 需要异步关闭
+    loadingInstance && loadingInstance.close();
     const res = response.data;
     return res;
   },
   (error) => {
-    this.$nextTick(() => {
-      // 以服务的方式调用的 Loading 需要异步关闭
-      loadingInstance && loadingInstance.close();
-    });
+    loadingInstance && loadingInstance.close();
     console.log("err: ", error.response);
-    const status = error.response.status;
-    const code = error.response.data.code; //"rest_forbidden"
-    console.log("router.currentRoute: ", router.currentRoute);
-    // if (status === 401 && code === 401) {
-    //   if (router.currentRoute.fullPath.indexOf("/login") === -1) {
-    //     ElMessage.error("当前为未登录状态或登录态过期请重新登录");
-    //     store.dispatch("user/logout");
-    //     router
-    //       .push(`/login?redirect=${router.currentRoute.fullPath}`)
-    //       .catch(() => {});
-    //   }
-    // }
     return Promise.reject(error.response);
   }
 );

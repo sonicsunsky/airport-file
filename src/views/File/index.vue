@@ -74,14 +74,19 @@
 
             <el-table-column label="操作">
               <template #default="{ row }">
-                <el-button type="text" @click="openFileDetail(row)"
-                  >查看详情</el-button
+                <el-button
+                  type="text"
+                  icon="el-icon-view"
+                  @click="openFileDetail"
                 >
+                  查看详情
+                </el-button>
 
                 <el-button
                   v-if="row.role === 'admin'"
+                  icon="el-icon-download"
                   type="text"
-                  @click="downloadFile(row)"
+                  @click="handleDownloadFile(row)"
                   >下载</el-button
                 >
               </template>
@@ -159,14 +164,18 @@
 
                 <el-table-column label="操作">
                   <template #default="{ row }">
-                    <el-button type="text" @click="openFileDetail(row)"
+                    <el-button
+                      type="text"
+                      icon="el-icon-view"
+                      @click="openFileDetail(row)"
                       >查看详情</el-button
                     >
 
                     <el-button
                       v-if="row.role === 'admin'"
+                      icon="el-icon-download"
                       type="text"
-                      @click="downloadFile(row)"
+                      @click="handleDownloadFile(row)"
                       >下载</el-button
                     >
                   </template>
@@ -201,14 +210,18 @@ import {
   onUnmounted,
   reactive,
   toRefs,
+  getCurrentInstance,
 } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { treeData, createTableData } from "./data";
+import { downloadFile } from "@/utils";
+import Api from "@/api";
 
 export default defineComponent({
   name: "File",
   setup() {
+    console.log("getCurrentInstance: ", getCurrentInstance());
     const router = useRouter();
     const route = useRoute();
     const store = useStore();
@@ -279,16 +292,15 @@ export default defineComponent({
       // getFileList();
     };
 
-    const openFileDetail = ({ url }) => {
-      if (url) {
-        window.open(url, "_blank");
+    const openFileDetail = ({ href }) => {
+      if (href) {
+        window.open(href);
       }
     };
 
-    const downloadFile = ({ link }) => {
-      if (link) {
-        window.open(link, "_blank");
-      }
+    const handleDownloadFile = ({ download_url, name, mime }) => {
+      downloadFile(download_url, name);
+      // Api.downloadFile(download_url, name, mime);
     };
 
     const loadNode = (node, resolve) => {
@@ -329,7 +341,7 @@ export default defineComponent({
       ...toRefs(state),
       device,
       openFileDetail,
-      downloadFile,
+      handleDownloadFile,
       onSearchFileList,
       fetchFileList,
       handleSizeChange,

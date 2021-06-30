@@ -1,7 +1,7 @@
 //请确保已经安装了 sass 依赖并将 element-plus/packages/theme-chalk/src/base.scss 文件在入口文件中引入
 import "element-plus/packages/theme-chalk/src/base.scss";
 import "element-plus/lib/theme-chalk/display.css";
-import "../styles/element-variables.scss";
+import "@/styles/element-variables.module.scss";
 
 //通过 es modules 按需引入 Element Plus
 import { locale } from "element-plus";
@@ -148,3 +148,12 @@ export const plugins = [
   ElMessageBox,
   ElNotification,
 ];
+
+export default (app) => {
+  components.forEach((component) => {
+    app.component(component.name, component);
+  });
+  plugins.forEach((plugin) => {
+    app.use(plugin);
+  });
+};

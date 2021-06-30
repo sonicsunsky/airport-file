@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { ref, reactive, computed, toRefs } from "vue";
 export default {
   name: "Pagination",
   props: {
@@ -28,7 +29,7 @@ export default {
     },
     limit: {
       type: Number,
-      default: 20,
+      default: 10,
     },
     pageSizes: {
       type: Array,
@@ -50,31 +51,39 @@ export default {
     },
   },
   emits: ["update:page", "update:limit", "pagination"],
-  computed: {
-    currentPage: {
+  setup(props, context) {
+    const { emit } = context;
+    const currentPage = computed({
       get() {
-        return this.page;
+        return props.page;
       },
       set(val) {
-        this.$emit("update:page", val);
+        emit("update:page", val);
       },
-    },
-    pageSize: {
+    });
+    const pageSize = computed({
       get() {
-        return this.limit;
+        return props.limit;
       },
       set(val) {
-        this.$emit("update:limit", val);
+        emit("update:limit", val);
       },
-    },
-  },
-  methods: {
-    handleSizeChange(val) {
-      this.$emit("pagination", { page: this.currentPage, limit: val });
-    },
-    handleCurrentChange(val) {
-      this.$emit("pagination", { page: val, limit: this.pageSize });
-    },
+    });
+
+    const handleCurrentChange = (val) => {
+      this.$emit("pagination", { page: val, limit: props.pageSize });
+    };
+
+    const handleSizeChange = (val) => {
+      this.$emit("pagination", { page: props.currentPage, limit: val });
+    };
+
+    return {
+      currentPage,
+      pageSize,
+      handleSizeChange,
+      handleCurrentChange,
+    };
   },
 };
 </script>

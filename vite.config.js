@@ -54,4 +54,15 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
+  // server: {
+  //   cors: true,
+  //   proxy: {
+  //     "/file": {
+  //       target: "http://www.leomay.com",
+  //       //upload/file/mmo-20170707165001.pdf
+  //       changeOrigin: true,
+  //       // rewrite: (path) => path.replace(/^\/api/, ""),
+  //     },
+  //   },
+  // },
 });
