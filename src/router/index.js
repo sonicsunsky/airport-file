@@ -27,8 +27,15 @@ export const constantRoutes = [
         component: () => import("@/views/Form/index.vue"),
         name: "Form",
         meta: { title: "表单", icon: "el-icon-document" },
-      }
+      },
     ],
+  },
+  {
+    path: "/pdf",
+    component: () => import("@/views/PDF/index.vue"),
+    name: "PDF",
+    meta: { title: "表单", icon: "el-icon-document" },
+    hidden: true,
   },
   {
     path: "/401",
@@ -47,7 +54,7 @@ export const constantRoutes = [
 export const asyncRoutes = [];
 
 const router = createRouter({
-  history: createWebHashHistory(), 
+  history: createWebHashHistory(),
   // hash模式：createWebHashHistory，history模式：createWebHistory
   routes: constantRoutes,
   scrollBehavior: () => ({

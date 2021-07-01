@@ -24,6 +24,13 @@
       </template>
     </el-dialog>
 
+    <el-dialog title="PDF预览" v-model="showPDFViewer" width="90%" center>
+      <div class="pdf">
+        <iframe :src="pdfSrc" width="400" height="400"></iframe>
+        <!-- <pdf v-for="i in numPages" :key="i" :src="pdfSrc" :page="i"></pdf> -->
+      </div>
+    </el-dialog>
+
     <template v-if="device === 'mobile'">
       <div class="lay-mobile">
         <el-tree
@@ -207,7 +214,6 @@ import {
   computed,
   defineComponent,
   onMounted,
-  onUnmounted,
   reactive,
   toRefs,
   getCurrentInstance,
@@ -216,10 +222,12 @@ import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { treeData, createTableData } from "./data";
 import { downloadFile } from "@/utils";
-import Api from "@/api";
 
 export default defineComponent({
   name: "File",
+  // components: {
+  //   pdf,
+  // },
   setup() {
     console.log("getCurrentInstance: ", getCurrentInstance());
     const router = useRouter();
@@ -228,6 +236,9 @@ export default defineComponent({
 
     const state = reactive({
       showDisclaimer: true,
+      showPDFViewer: false,
+      pdfSrc: "",
+      numPages: 0,
       keyword: "",
       defaultProps: {
         children: "children",
@@ -251,8 +262,6 @@ export default defineComponent({
       state.total = 100;
       generateTableData();
     });
-
-    onUnmounted(() => {});
 
     const handleSizeChange = (val) => {
       state.listQuery.limit = val;
@@ -293,9 +302,16 @@ export default defineComponent({
     };
 
     const openFileDetail = ({ href }) => {
-      if (href) {
-        window.open(href);
-      }
+      // if (href) {
+      //   window.open(href, "_blank");
+      // }
+      router.push({ path: "/pdf", query: { href } });
+      // state.pdfSrc = href;
+      // state.showPDFViewer = true;
+      // state.pdfSrc = pdf.createLoadingTask(state.pdfSrc);
+      // state.pdfSrc.promise.then((res) => {
+      //   state.numPages = res.numPages;
+      // });
     };
 
     const handleDownloadFile = ({ download_url, name, mime }) => {
