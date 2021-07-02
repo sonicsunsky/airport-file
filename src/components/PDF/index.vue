@@ -11,7 +11,8 @@
 </template>
 
 <script>
-import * as PDFJS from 'pdfjs-dist/legacy/build/pdf.js'
+import * as PDFJS from "pdfjs-dist/legacy/build/pdf.js";
+console.log(PDFJS)
 PDFJS.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS.version}/pdf.worker.js`;
 import { reactive, watch, computed, toRefs, nextTick } from "vue";
 

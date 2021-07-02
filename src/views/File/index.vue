@@ -222,6 +222,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { treeData, createTableData } from "./data";
 import { downloadFile } from "@/utils";
+import Api from "@/api";
 
 export default defineComponent({
   name: "File",
@@ -314,9 +315,13 @@ export default defineComponent({
       // });
     };
 
-    const handleDownloadFile = ({ download_url, name, mime }) => {
-      downloadFile(download_url, name);
-      // Api.downloadFile(download_url, name, mime);
+    const handleDownloadFile = ({
+      download_url,
+      name,
+      mime = `application/pdf`,
+    }) => {
+      // downloadFile(download_url, name);
+      Api.downloadFile(download_url, name, mime);
     };
 
     const loadNode = (node, resolve) => {

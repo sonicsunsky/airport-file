@@ -1,9 +1,8 @@
 import dayjs from "dayjs";
 
-const downloadUrl =
-  process.env.NODE_ENV === "production"
-    ? `https://raw.githubusercontent.com/sonicsunsky/airport-file/main/docs/pdf/compressed.tracemonkey-pldi-09.pdf`
-    : `http://localhost:3000/pdf/compressed.tracemonkey-pldi-09.pdf`;
+const downloadUrl = import.meta.env.PROD
+  ? `https://raw.githubusercontent.com/sonicsunsky/airport-file/main/docs/pdf/compressed.tracemonkey-pldi-09.pdf`
+  : `/pdf/compressed.tracemonkey-pldi-09.pdf`;
 
 export const createTableData = (size) => {
   return new Array(size).fill("").map((item, index) => {
