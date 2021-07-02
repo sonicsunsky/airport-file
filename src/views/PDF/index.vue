@@ -20,7 +20,8 @@ export default {
     const pdfSrc = ref("");
     const getPDFUrl = () => {
       const href = route.query.href;
-      pdfSrc.value = href;
+      console.log("getPDFUrl: ", href);
+      pdfSrc.value = encodeURIComponent(href);
       console.log("pdfSrc:", pdfSrc.value);
     };
 

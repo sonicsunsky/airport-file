@@ -303,16 +303,7 @@ export default defineComponent({
     };
 
     const openFileDetail = ({ href }) => {
-      // if (href) {
-      //   window.open(href, "_blank");
-      // }
       router.push({ path: "/pdf", query: { href } });
-      // state.pdfSrc = href;
-      // state.showPDFViewer = true;
-      // state.pdfSrc = pdf.createLoadingTask(state.pdfSrc);
-      // state.pdfSrc.promise.then((res) => {
-      //   state.numPages = res.numPages;
-      // });
     };
 
     const handleDownloadFile = ({
@@ -320,8 +311,8 @@ export default defineComponent({
       name,
       mime = `application/pdf`,
     }) => {
-      // downloadFile(download_url, name);
-      Api.downloadFile(download_url, name, mime);
+      downloadFile(download_url, name);
+      // Api.downloadFile(download_url, name, mime);
     };
 
     const loadNode = (node, resolve) => {
